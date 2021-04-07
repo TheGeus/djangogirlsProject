@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Django Girls blog</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    </head>
+    <body>
+    <div class="content container">
+        <div class="row top">
+            <h1><a href="/">Django Girls Blog</a></h1>
+        </div>
+        {% if user.is_authenticated %}
+            <div class="page-header">
+                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphic plyphicon-plus">nuevo</span></a>
+            </div>
+        {% endif %}
+        <div class="col-md-12 borde espacio-top">
+        {% block content %}
+        {% endblock %}
+            </div>
+    </div>
+    </body>
+</html>

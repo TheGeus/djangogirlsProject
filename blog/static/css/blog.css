@@ -1,0 +1,34 @@
+h1 a, h2 a {
+    font-family: 'Lobster';
+}
+a:hover{
+	 text-decoration: none;
+}
+.top{
+	background-color: orange
+}
+
+.top h1 a{
+	color: white;
+}
+.top h1 a:hover{
+	color: red;
+}
+.borde{
+	border: 1px solid;
+}
+
+.espacio-top{
+	margin-top: 10px;
+}
+.post h2{
+    background-color: blue !important;
+    border-radius: 0% 0% 50% 50%;
+    text-align: center;
+}
+.post h2 a:hover{
+    color: white;
+}
+.post h2 a{
+    color: #FCA205;
+ }
