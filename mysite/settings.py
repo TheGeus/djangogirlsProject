@@ -28,13 +28,9 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
 
 #Translate definition
-from django.utils.translation import ugettext_lazy as _
-MIDDLEWARE_CLASSES = (
-    'django.middleware.locale.LocaleMiddleware',
-)
 LANGUAGES = [
-    ('es-es', _('Español')),
-    ('en-us', _('English')),
+    ('es-es', 'Español'),
+    ('en-us', 'English'),
 ]
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale/')
@@ -55,6 +51,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
