@@ -1,8 +1,8 @@
 from django.db import models
-
 from django.utils import timezone
 
 class Post(models.Model):
+    id = models.AutoField(primary_key=True)
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
@@ -17,3 +17,8 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+# class Language(request):
+#     current_user = request.user
+#     if not current_user:
+#         lang = models.CharField(max_length=5, choices=settings.language)

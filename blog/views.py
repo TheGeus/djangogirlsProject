@@ -1,8 +1,13 @@
+#includes
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Post
 from .forms import PostForm
-# Create your views here.
+from django.http import HttpResponse
+from django.utils.translation import ugettext as _
+from django.utils import translation
+####### views #######
+#Posts
 def post_list(request):
 	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
 	return render(request, 'blog/post_list.html', {'posts': posts})
@@ -38,3 +43,30 @@ def post_edit(request, pk):
 	else:
 		form = PostForm(instance=post)
 	return render(request, 'blog/post_edit.html', {'form': form})
+####### endviews #######
+
+######translation######
+
+def language(request):
+	if request.method == "POST":
+		response = render(request, 'blog/language.html')
+		response.set_cookie('lang', request.POST['language'])
+		return response
+		#LANGUAGE_CODE(request.POST['language'])
+		# form = request.POST
+		# print(form)
+		# if form.is_valid():
+		# 	form = form.save(commit=False)
+		# 	response = HttpResponse(form.language)
+		# 	response.set_cookie('lang', form.language)
+		# 	form.save()
+		# 	translation.activate()
+		# 	# return render('language',)
+	return render(request, 'blog/language.html')
+
+#welcome msg translated
+def msg_welcome(request):
+	output = _('WelcomeMsg')
+	return HttpResponse(output)
+
+###### endtranslation ######

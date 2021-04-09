@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,6 +12,10 @@
         <div class="row top">
             <h1><a href="/">Django Girls Blog</a></h1>
         </div>
+        <div class="language">
+            <a href="{% url 'language' %}">{% trans 'cambiarIdioma' %}</a>
+        </div>
+        <h4>{% trans 'WelcomeMsg' %}</h4>
         {% if user.is_authenticated %}
             <div class="page-header">
                 <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphic plyphicon-plus">nuevo</span></a>

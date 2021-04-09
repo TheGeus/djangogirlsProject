@@ -1,0 +1,13 @@
+iniciar servidor
+python manage.py runserver
+
+iniciar myenv
+source myenv/bin/activate
+
+crear idioma
+django-admin makemessages -l de
+
+copilar idiomas
+django-admin compilemessages
+
+{{ form.as_p }}

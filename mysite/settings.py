@@ -27,7 +27,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
 
-
+#Translate definition
+from django.utils.translation import ugettext_lazy as _
+MIDDLEWARE_CLASSES = (
+    'django.middleware.locale.LocaleMiddleware',
+)
+LANGUAGES = [
+    ('es-es', _('Español')),
+    ('en-us', _('English')),
+]
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale/')
+]
 # Application definition
 
 INSTALLED_APPS = [
